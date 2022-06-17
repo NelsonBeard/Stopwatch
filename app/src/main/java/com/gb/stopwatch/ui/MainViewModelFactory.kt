@@ -5,14 +5,12 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineScope
 
 class MainViewModelFactory(
-    private val stopwatchStateHolder: StopwatchStateHolder,
-    private val scope: CoroutineScope
+    private val stopwatchStateHolder: StopwatchStateHolder
 ) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(
-            stopwatchStateHolder,
-            scope
+            stopwatchStateHolder
         ) as T
     }
 }

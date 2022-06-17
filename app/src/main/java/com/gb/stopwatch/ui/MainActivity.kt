@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var vm: MainViewModel
     private lateinit var stopwatchStateHolder: StopwatchStateHolder
 
-    private val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private val timestampProvider = TimestampProviderImpl()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +40,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         vm = MainViewModelFactory(
-            stopwatchStateHolder,
-            scope
+            stopwatchStateHolder
         ).create(MainViewModel::class.java)
     }
 
